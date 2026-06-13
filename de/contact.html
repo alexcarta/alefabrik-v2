@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt — Ale Fabrik</title>
-  <meta name="description" content="Nimm Kontakt mit Ale Fabrik auf. Erzähl mir von deinem Unternehmen und ich melde mich innerhalb von 24 Stunden.">
+  <title>Kontakt · Ale Fabrik — Websites für lokale Unternehmen</title>
+  <meta name="description" content="Bereit, dein Unternehmen online zu bringen? Erzähl Alessandro davon — er meldet sich innerhalb von 24 Stunden. Keine Verpflichtung, kein Verkaufsgespräch.">
   <link rel="canonical" href="https://www.alefabrik.com/de/contact.html">
   <link rel="alternate" hreflang="en" href="https://www.alefabrik.com/en/contact.html">
   <link rel="alternate" hreflang="it" href="https://www.alefabrik.com/it/contact.html">
   <link rel="alternate" hreflang="de" href="https://www.alefabrik.com/de/contact.html">
   <link rel="alternate" hreflang="x-default" href="https://www.alefabrik.com/en/contact.html">
-  <link rel="stylesheet" href="../style.css?v=2">
+  <link rel="stylesheet" href="../style.css?v=8">
 </head>
 <body>
 
@@ -32,18 +32,43 @@
     </div>
   </div>
 </nav>
+<div class="nav-dropdown" id="nav-dropdown">
+    <a href="services.html">Leistungen</a>
+    <a href="about.html">Über mich</a>
+    <a href="contact.html">Kontakt</a>
+    <div class="dropdown-lang">
+      <a href="../en/contact.html">EN</a>
+      <a href="../it/contact.html">IT</a>
+      <a href="../de/contact.html" class="lang-active">DE</a>
+    </div>
+  </div>
 
-<section class="hero">
+<main><section class="hero">
   <div class="container">
     <span class="hero-eyebrow">Kontakt</span>
-    <h1>Lass uns über dein <em>Unternehmen</em> reden.</h1>
-    <p class="lead">Füll das Formular aus und ich melde mich innerhalb von 24 Stunden. Kein Engagement, kein Verkaufsgespräch.</p>
+    <h1>Erzähl mir von<br><em>deinem Unternehmen.</em></h1>
+    <p class="lead">Kein Verkaufsgespräch. Keine Verpflichtung. Füll das Formular aus, schreib mir eine Mail oder ruf an — ich melde mich innerhalb von 24 Stunden. Wir reden kurz über dein Unternehmen, und ich sage dir ehrlich, was ich für dich tun kann und was es kostet.</p>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <form action="https://formspree.io/f/[YOUR_FORM_ID]" method="POST" style="max-width: 560px;">
+    <div class="reassurance-strip">
+      <div class="reassurance-card">
+        <div class="reassurance-title">Antwort innerhalb von 24 Stunden</div>
+        <p class="reassurance-body">Ich lese jede Nachricht selbst und antworte persönlich — meistens noch am selben Tag.</p>
+      </div>
+      <div class="reassurance-card">
+        <div class="reassurance-title">Keine Verpflichtung</div>
+        <p class="reassurance-body">Eine Kontaktaufnahme verpflichtet dich zu nichts. Stell Fragen, hol dir ein Angebot, dann entscheide.</p>
+      </div>
+      <div class="reassurance-card">
+        <div class="reassurance-title">Kein Fachjargon</div>
+        <p class="reassurance-body">Kein technisches Kauderwelsch. Ich sage dir genau, was ich bauen würde, warum und was es kostet.</p>
+      </div>
+    </div>
+
+    <form action="https://formspree.io/f/xqeogjqq" method="POST" style="max-width: 560px;">
       <div class="form-row">
         <div class="form-group">
           <label class="form-label" for="name">Dein Name</label>
@@ -51,7 +76,14 @@
         </div>
         <div class="form-group">
           <label class="form-label" for="email">E-Mail-Adresse</label>
-          <input class="form-input" type="email" id="email" name="email" placeholder="maria@beispiel.de" required>
+          <input class="form-input" type="email" id="email" name="email" placeholder="maria@beispiel.de" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Bitte gib eine gültige E-Mail-Adresse ein" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="phone_prefix">Telefonnummer <span style="font-weight: 400; color: var(--gray);">— optional</span></label>
+        <div class="form-row-phone">
+          <input class="form-input" type="text" id="phone_prefix" name="phone_prefix" placeholder="+49" pattern="\+[0-9]{1,4}" title="Internationale Vorwahl, z.B. +49" style="max-width: 90px;">
+          <input class="form-input" type="tel" id="phone" name="phone" placeholder="030 12345678" pattern="[0-9\s\-]{6,20}" title="Telefonnummer">
         </div>
       </div>
       <div class="form-group">
@@ -60,8 +92,8 @@
       </div>
       <div class="form-group">
         <label class="form-label" for="package">Welches Paket interessiert dich?</label>
-        <select class="form-select" id="package" name="package">
-          <option value="">Noch nicht sicher — hilf mir auswählen</option>
+        <select class="form-select" id="package" name="package" required>
+          <option value="unsure" selected>Noch nicht sicher — hilf mir auswählen</option>
           <option value="starter">Starter — €299</option>
           <option value="standard">Standard — €499</option>
           <option value="pro">Pro — €799</option>
@@ -69,7 +101,7 @@
       </div>
       <div class="form-group">
         <label class="form-label" for="message">Erzähl mir von deinem Unternehmen</label>
-        <textarea class="form-textarea" id="message" name="message" placeholder="Was machst du, wo bist du und was brauchst du von einer Website am meisten?" required></textarea>
+        <textarea class="form-textarea" id="message" name="message" placeholder="Was machst du, wo bist du und was brauchst du von einer Website am meisten?" minlength="20" required></textarea>
       </div>
       <div class="form-group">
         <label class="form-check">
@@ -77,15 +109,24 @@
           <span>Ich habe die <a href="../privacy.html">Datenschutzerklärung</a> gelesen und stimme ihr zu. Ich stimme der Verarbeitung meiner Daten zur Beantwortung dieser Anfrage zu.</span>
         </label>
       </div>
+      <input type="text" name="_gotcha" style="display:none">
       <button type="submit" class="btn btn-primary">Nachricht senden</button>
     </form>
 
     <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--lightgray); max-width: 560px;">
       <p style="font-size: 0.875rem;"><strong>Lieber per E-Mail?</strong> Schreib direkt an <a href="mailto:hello@alefabrik.com">hello@alefabrik.com</a></p>
       <p style="font-size: 0.875rem; margin-top: 0.5rem;">Ich antworte auf Englisch, Italienisch und Deutsch.</p>
+      <p style="margin-top: 1.25rem;">
+        <a href="https://wa.me/4915906375891" class="btn-whatsapp" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp schreiben
+        </a>
+      </p>
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="footer-inner">
@@ -109,7 +150,12 @@
   <button id="cookie-dismiss" onclick="dismissCookie()">Verstanden</button>
 </div>
 <script>
-function toggleMenu() { document.getElementById('nav-links').classList.toggle('open'); }
+function toggleMenu() {
+  var btn = document.querySelector('.nav-hamburger');
+  var dd = document.getElementById('nav-dropdown');
+  btn.classList.toggle('open');
+  dd.classList.toggle('open');
+}
 function dismissCookie() { document.getElementById('cookie-notice').style.display='none'; localStorage.setItem('cookieDismissed','1'); }
 if (localStorage.getItem('cookieDismissed')) document.getElementById('cookie-notice').style.display='none';
 </script>

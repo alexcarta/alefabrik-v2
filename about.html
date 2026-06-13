@@ -10,7 +10,7 @@
   <meta property="og:description" content="I'm Alessandro — building websites for local businesses in Italy and Germany. Fast, honest, personal.">
   <meta property="og:url" content="https://www.alefabrik.com/about.html">
   <meta property="og:type" content="website">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 
@@ -27,6 +27,16 @@
     </ul>
   </div>
 </nav>
+<div class="nav-dropdown" id="nav-dropdown">
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <div class="dropdown-lang">
+      <a href="en/index.html">EN</a>
+      <a href="it/index.html">IT</a>
+      <a href="de/index.html">DE</a>
+    </div>
+  </div>
 
 <section class="hero">
   <div class="container">
@@ -108,7 +118,12 @@
   <button id="cookie-dismiss" onclick="dismissCookie()">Got it</button>
 </div>
 <script>
-function toggleMenu() { document.getElementById('nav-links').classList.toggle('open'); }
+function toggleMenu() {
+  var btn = document.querySelector('.nav-hamburger');
+  var dd = document.getElementById('nav-dropdown');
+  btn.classList.toggle('open');
+  dd.classList.toggle('open');
+}
 function dismissCookie() { document.getElementById('cookie-notice').style.display='none'; localStorage.setItem('cookieDismissed','1'); }
 if (localStorage.getItem('cookieDismissed')) document.getElementById('cookie-notice').style.display='none';
 </script>
